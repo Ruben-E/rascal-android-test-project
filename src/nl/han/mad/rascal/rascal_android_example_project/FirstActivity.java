@@ -3,19 +3,39 @@ package nl.han.mad.rascal.rascal_android_example_project;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class FirstActivity extends Activity {
-    /**
-     * Called when the activity is first created.
-     */
+    private Button mSecondActivityButton;
+    private Button mThirdActivityButton;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.first_activity);
 
-        String name = "Test";
-        String address = "Test 11";
+        mSecondActivityButton = (Button) findViewById(R.id.second_activity_button);
+        mThirdActivityButton = (Button) findViewById(R.id.third_activity_button);
 
-        Intent intent; //@@Intent ThirdActivity [name, address]
+        mSecondActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent; //@@Intent SecondActivity
+            }
+        });
+
+        mThirdActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int intentCode = 1;
+                String name = "Test Name";
+                String address = "Test address 11";
+
+                Intent intent; //@@Intent ThirdActivity [intentCode, name, address]
+            }
+        });
     }
+
+
 }
